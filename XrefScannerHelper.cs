@@ -44,7 +44,7 @@ namespace Xref_Standalone
 
         /* CHANGES
          * - Method 'XrefScanImpl' was modified to use Console.Writeline to print the exception.
-         * - Method 'XrefScanImpl' was modified to use ExtractTargetAddress and XrefGlobalClassFilter from XrefScannerHelper.
+         * - Method 'XrefScanImpl' was modified to use 'ExtractTargetAddress' and 'XrefGlobalClassFilter' from XrefScannerHelper.
          */
         internal static IEnumerable<XrefInstance> XrefScanImpl(Decoder decoder, bool skipClassCheck = false)
         {
