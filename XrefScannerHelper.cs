@@ -6,6 +6,9 @@ using System.Runtime.InteropServices;
 
 namespace Xref_Standalone
 {
+    /* CHANGES
+     * - Class 'XrefScannerHelper' was added.
+     */
     internal static class XrefScannerHelper
     {
         internal static unsafe Decoder DecoderForAddress(IntPtr codeStart, int lengthLimit = 1000)
@@ -39,6 +42,10 @@ namespace Xref_Standalone
             }
         }
 
+        /* CHANGES
+         * - Method 'XrefScanImpl' was modified to use Console.Writeline to print the exception.
+         * - Method 'XrefScanImpl' was modified to use ExtractTargetAddress and XrefGlobalClassFilter from XrefScannerHelper.
+         */
         internal static IEnumerable<XrefInstance> XrefScanImpl(Decoder decoder, bool skipClassCheck = false)
         {
             while (true)
@@ -90,6 +97,9 @@ namespace Xref_Standalone
         }
 
 
+        /* CHANGES
+         * - Method 'XrefGlobalClassFilter' was modified to get the String Pointer and Type Pointer from XrefPtrStorage.
+         */
         internal static bool XrefGlobalClassFilter(IntPtr movTarget)
         {
             var valueAtMov = (IntPtr)Marshal.ReadInt64(movTarget);

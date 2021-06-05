@@ -20,12 +20,9 @@ namespace Xref_Standalone
             return new XrefInstance(Type, (IntPtr)((long)Pointer - baseAddress), (IntPtr)((long)FoundAt - baseAddress));
         }
 
-        //public string ReadAsString()
-        //{
-        //    if (Type != XrefType.Global) throw new InvalidOperationException("Can't read non-global xref as string");
-
-        //    var valueAtPointer = Marshal.ReadIntPtr(Pointer);
-        //    return IL2CPP.IntPtrToString(valueAtPointer);
-        //}
+        /* CHANGES
+         * - Method 'ReadAsObject' was removed
+         * - Method 'TryResolve' was removed
+         */
     }
 }

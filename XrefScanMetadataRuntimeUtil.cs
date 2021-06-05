@@ -12,12 +12,18 @@ namespace Xref_Standalone
         private static InitMetadataForMethod ourMetadataInitForMethodDelegate;
         private static IntPtr ourMetadataInitForMethodPointer;
 
+        /* CHANGES
+         * - Method 'FindMetadataInitForMethod' was modified to get the Unity Object Constructor Pointer from XrefPtrStorage.
+         */
         private static unsafe void FindMetadataInitForMethod()
         {
             ourMetadataInitForMethodPointer = XrefScannerLowLevel.JumpTargets(*(IntPtr*)XrefPtrStorage.unityObjectCctorPtr).First();
             ourMetadataInitForMethodDelegate = Marshal.GetDelegateForFunctionPointer<InitMetadataForMethod>(ourMetadataInitForMethodPointer);
         }
 
+        /* CHANGES
+         * - Method 'CallMetadataInitForMethod' was modified to take a IntPtr instead of a MethodBase for the parameter.
+         */
         internal static unsafe bool CallMetadataInitForMethod(IntPtr nativeMethod)
         {
             if (ourMetadataInitForMethodPointer == IntPtr.Zero)
@@ -40,7 +46,5 @@ namespace Xref_Standalone
 
             return true;
         }
-
-
     }
 }

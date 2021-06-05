@@ -2,6 +2,9 @@
 
 namespace Xref_Standalone
 {
+    /* CHANGES
+     * - Class 'XrefPtrStorage' was added.
+     */
     public static class XrefPtrStorage
     {
         public static IntPtr typePtr;

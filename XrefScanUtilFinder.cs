@@ -5,6 +5,9 @@ namespace Xref_Standalone
 {
     internal static class XrefScanUtilFinder
     {
+        /* CHANGES
+         * - Method 'FindLastRcxReadAddressBeforeCallTo' was modified to use 'DecoderForAddress' and 'DecoderForAddress' at ExtractTargetAddress.
+         */
         public static IntPtr FindLastRcxReadAddressBeforeCallTo(IntPtr codeStart, IntPtr callTarget)
         {
             var decoder = XrefScannerHelper.DecoderForAddress(codeStart);
@@ -45,6 +48,9 @@ namespace Xref_Standalone
             }
         }
 
+        /* CHANGES
+         * - Method 'FindByteWriteTargetRightAfterCallTo' was modified to use 'DecoderForAddress' and 'DecoderForAddress' at ExtractTargetAddress.
+         */
         public static IntPtr FindByteWriteTargetRightAfterCallTo(IntPtr codeStart, IntPtr callTarget)
         {
             var decoder = XrefScannerHelper.DecoderForAddress(codeStart);
@@ -78,5 +84,9 @@ namespace Xref_Standalone
                 }
             }
         }
+
+        /* CHANGES
+         * - Method 'ExtractTargetAddress' was removed
+         */
     }
 }

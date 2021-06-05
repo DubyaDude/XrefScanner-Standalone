@@ -7,6 +7,9 @@ namespace Xref_Standalone
 {
     public static class XrefScannerLowLevel
     {
+        /* CHANGES
+         * - Method 'XrefScan' was modified to use 'JumpTargets' and 'DecoderForAddress' at XrefScannerHelper.
+         */
         public static IEnumerable<IntPtr> JumpTargets(IntPtr codeStart)
         {
             return JumpTargetsImpl(XrefScannerHelper.DecoderForAddress(codeStart));
@@ -28,6 +31,12 @@ namespace Xref_Standalone
                 }
             }
         }
+
+
+        /* CHANGES
+         * - Method 'CallAndIndirectTargets' was removed
+         * - Method 'CallAndIndirectTargetsImpl' was removed
+         */
 
         private static ulong ExtractTargetAddress(in Instruction instruction)
         {
